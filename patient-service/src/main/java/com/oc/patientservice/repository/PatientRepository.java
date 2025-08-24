@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public interface PatientRepository extends MongoRepository<Patient, String> {
 
-    Optional<Patient> findByFirstNameAndLastNameAndDateOfBirth(String firstName,
+    Optional<Patient> findByFirstNameAndLastNameAndBirthDate(String firstName,
                                                                String lastName,
                                                                LocalDate dateOfBirth);
 }
