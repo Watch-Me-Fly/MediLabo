@@ -20,16 +20,16 @@ public class Patient {
     @Id
     private String id;
 
-    @NotBlank
+    @NotBlank(message = "first name is mandatory")
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "last name is mandatory")
     private String lastName;
 
-    @NotNull
+    @NotNull(message = "date of birth is mandatory")
     private LocalDate dateOfBirth;
 
-    @NotBlank
+    @NotBlank(message = "sex is mandatory")
     @Pattern(regexp = "M|F|Other")
     private String sex;
 
