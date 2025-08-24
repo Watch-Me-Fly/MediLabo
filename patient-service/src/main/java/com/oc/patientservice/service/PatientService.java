@@ -26,10 +26,10 @@ public class PatientService {
                 || patient.getLastName().isEmpty()) {
             throw new IllegalArgumentException("last name is mandatory");
         }
-        if (patient.getDateOfBirth() == null) {
+        if (patient.getBirthDate() == null) {
             throw new IllegalArgumentException("date of birth is mandatory");
         }
-        if (patient.getDateOfBirth().isAfter(LocalDate.now())) {
+        if (patient.getBirthDate().isAfter(LocalDate.now())) {
             throw new IllegalArgumentException("date of birth is after current date");
         }
         if (patient.getSex() == null
@@ -48,7 +48,7 @@ public class PatientService {
     public Optional<Patient> getPatientInformation(String firstName,
                                                    String lastName,
                                                    LocalDate dateOfBirth) {
-        return repository.findByFirstNameAndLastNameAndDateOfBirth(
+        return repository.findByFirstNameAndLastNameAndBirthDate(
                 firstName, lastName, dateOfBirth);
     }
     // update

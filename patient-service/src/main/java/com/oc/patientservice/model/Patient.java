@@ -9,12 +9,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
+@Document(collection = "patients")
 public class Patient {
 
     @Id
@@ -27,7 +29,7 @@ public class Patient {
     private String lastName;
 
     @NotNull(message = "date of birth is mandatory")
-    private LocalDate dateOfBirth;
+    private LocalDate birthDate;
 
     @NotBlank(message = "sex is mandatory")
     @Pattern(regexp = "M|F|Other")
