@@ -2,6 +2,7 @@ package com.oc.patientservice.controller;
 
 import com.oc.patientservice.model.Patient;
 import com.oc.patientservice.service.PatientService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ public class PatientController {
 
     private final PatientService service;
 
+    @Autowired
     public PatientController(PatientService service) {
         this.service = service;
     }
