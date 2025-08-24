@@ -55,7 +55,7 @@ public class PatientServiceTest {
         patient.setId("3");
         patient.setFirstName("John");
         patient.setLastName("Doe");
-        patient.setDateOfBirth(LocalDate.of(1945, 10, 1));
+        patient.setBirthDate(LocalDate.of(1945, 10, 1));
         patient.setSex("M");
 
         when(repository.save(patient)).thenReturn(patient);
@@ -75,7 +75,7 @@ public class PatientServiceTest {
         Patient patient = new Patient();
         patient.setId("3");
         patient.setLastName("Doe");
-        patient.setDateOfBirth(LocalDate.of(1945, 10, 1));
+        patient.setBirthDate(LocalDate.of(1945, 10, 1));
         patient.setSex("M");
 
         when(repository.save(patient)).thenReturn(patient);
@@ -101,7 +101,7 @@ public class PatientServiceTest {
     public void getPatientInfo_success() {
         // arrange
         when(repository
-                .findByFirstNameAndLastNameAndDateOfBirth(any(), any(), any()))
+                .findByFirstNameAndLastNameAndBirthDate(any(), any(), any()))
                 .thenReturn(
                         Optional.ofNullable(patients.getLast())
                 );
@@ -111,7 +111,7 @@ public class PatientServiceTest {
         );
         // assert
         verify(repository, times(1))
-                .findByFirstNameAndLastNameAndDateOfBirth(any(), any(), any());
+                .findByFirstNameAndLastNameAndBirthDate(any(), any(), any());
         assertEquals("Elizabeth", patient.get().getFirstName());
     }
     // update
