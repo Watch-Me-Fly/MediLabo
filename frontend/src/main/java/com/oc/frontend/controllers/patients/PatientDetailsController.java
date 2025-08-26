@@ -5,29 +5,30 @@ import com.oc.frontend.models.Patient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
 @Controller
 @RequestMapping("/patients")
-public class PatientsListController {
+public class PatientDetailsController {
 
     private final RestTemplate restTemplate;
     private final EndpointsProperties endpoints;
 
-    public PatientsListController(RestTemplate restTemplate, EndpointsProperties endpoints) {
+    public PatientDetailsController(RestTemplate restTemplate, EndpointsProperties endpoints) {
         this.restTemplate = restTemplate;
         this.endpoints = endpoints;
     }
 
-    @GetMapping
-    public String patientsList(Model model) {
+    @GetMapping("/{id}")
+    public String patientDetails(Model model, @PathVariable("id") String id) {
 
-        Patient[] patients = restTemplate
-                            .getForObject(endpoints.getPatientService(), Patient[].class);
+        String url = endpoints.getPatientService() + "/" + id;
+        Patient patient = restTemplate.getForObject(url, Patient.class);
 
-        model.addAttribute("patients", patients);
-        return "patient/patients";
+        model.addAttribute("patient", patient);
+        return "patient/details";
     }
 
 }
