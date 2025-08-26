@@ -1,0 +1,42 @@
+/* Color template */
+:root {
+    --text-color : #323643;
+    --primary-color : #c2d1d9;
+    --secondary-color : #A5DDF1;
+    --tertiary-color : #93deff;
+    --button-bg : #606470;
+    --button-bg-hover: #f7f7f7;
+    --important-color : #CF3D30;
+}
+/* Text */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+/* Header */
+img.header {
+    box-shadow:
+            rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+            rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+/* Buttons */
+.btn {
+    background-color: var(--button-bg-hover);
+    color: var(--button-bg);
+    box-shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+}
+.btn:hover {
+    background-color: var(--button-bg);
+    color: var(--button-bg-hover);
+}
+/* Navigation */
+#logo {
+    height: 50px;
+}
+a.active-link {
+    color: var(--important-color) !important;
+    font-weight: bold;
+}
+/* Lists */
+img.icon {
+    height: 35px;
+}
