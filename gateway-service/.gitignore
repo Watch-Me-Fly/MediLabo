@@ -7,6 +7,7 @@ target/
 ../gateway-service/.mvn/wrapper/maven-wrapper.properties
 mvnw.cmd
 mvnw
+.mvn/
 
 ### STS ###
 .apt_generated
