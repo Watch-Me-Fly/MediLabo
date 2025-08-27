@@ -1,7 +1,7 @@
 /* Color template */
 :root {
     --text-color : #323643;
-    --primary-color : #c2d1d9;
+    --primary-color : #e8e8e8;
     --secondary-color : #A5DDF1;
     --tertiary-color : #93deff;
     --button-bg : #606470;
@@ -35,6 +35,12 @@ img.header {
 a.active-link {
     color: var(--important-color) !important;
     font-weight: bold;
+    border-radius: 5px;
+}
+a.nav-link:hover {
+    background-color: var(--primary-color);
+    color: var(--button-bg);
+    border-radius: 5px;
 }
 /* Lists */
 img.icon {
