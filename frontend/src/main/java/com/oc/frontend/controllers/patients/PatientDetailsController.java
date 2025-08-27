@@ -1,6 +1,7 @@
 package com.oc.frontend.controllers.patients;
 
 import com.oc.frontend.config.EndpointsProperties;
+import com.oc.frontend.models.Note;
 import com.oc.frontend.models.Patient;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,10 +24,16 @@ public class PatientDetailsController {
     @GetMapping("/{id}")
     public String patientDetails(Model model, @PathVariable("id") String id) {
 
-        String url = endpoints.getPatientService() + "/" + id;
-        Patient patient = restTemplate.getForObject(url, Patient.class);
-
+        // fetch patient
+        String patientUrl = endpoints.getPatientService() + "/" + id;
+        Patient patient = restTemplate.getForObject(patientUrl, Patient.class);
         model.addAttribute("patient", patient);
+
+        // fetch notes
+        String notesURL = endpoints.getNotesService() + "/patient/" + id;
+        Note[] notes = restTemplate.getForObject(notesURL, Note[].class);
+        model.addAttribute("notes", notes);
+
         return "patient/details";
     }
 

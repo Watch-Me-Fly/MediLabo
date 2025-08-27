@@ -1,0 +1,7 @@
+p.date {
+    color: var(--secondary-color);
+}
+div.note-box {
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    width: 90%;
+}

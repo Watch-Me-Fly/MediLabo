@@ -31,12 +31,13 @@ public class NewPatientController {
     }
 
     @PostMapping
-    public String createPatient(@ModelAttribute Patient patient, RedirectAttributes redirectAttributes) {
+    public String createPatient(@ModelAttribute Patient patient,
+                                RedirectAttributes redirectAttributes) {
         String url = endpoints.getPatientService();
 
         restTemplate.postForObject(url, patient, String.class);
 
-        redirectAttributes.addFlashAttribute("success",
+        redirectAttributes.addFlashAttribute("SUCCESS",
                 "Patient profile created successfully!");
         return "redirect:/patients";
     }

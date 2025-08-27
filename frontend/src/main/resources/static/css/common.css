@@ -28,6 +28,23 @@ img.header {
     background-color: var(--button-bg);
     color: var(--button-bg-hover);
 }
+.cancel-btn {
+    background-color: var(--important-color);
+    color: var(--button-bg-hover);
+}
+
+.cancel-btn:hover {
+    background-color: var(--button-bg-hover);
+    color: var(--important-color);
+}
+button.save {
+    background-color: darkgreen;
+    color: var(--button-bg-hover);
+}
+button.save:hover {
+    background-color: var(--button-bg-hover);
+    color: darkgreen;
+}
 /* Navigation */
 #logo {
     height: 50px;
