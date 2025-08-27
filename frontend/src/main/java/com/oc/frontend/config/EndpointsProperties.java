@@ -7,5 +7,6 @@ import lombok.Setter;
 public class EndpointsProperties {
 
     private String patientService;
+    private String notesService;
 
 }
