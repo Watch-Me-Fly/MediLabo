@@ -53,36 +53,36 @@ public class RiskAssessmentService {
         boolean riskyAge = age >= 30;
 
         if (triggers == 0) {
-            return RiskLevels.NONE.name();
+            return RiskLevels.NONE.getLabel();
         }
         // above 30 (male or female)
         if (riskyAge) {
 
             if (triggers >= 2 && triggers <= 5) {
-                return RiskLevels.BORDERLINE.name();
+                return RiskLevels.BORDERLINE.getLabel();
             }
             if ((triggers == 6 || triggers == 7)) {
-                return RiskLevels.IN_DANGER.name();
+                return RiskLevels.IN_DANGER.getLabel();
             }
             if (triggers >= 8) {
-                return RiskLevels.EARLY_ONSET.name();
+                return RiskLevels.EARLY_ONSET.getLabel();
             }
         }
         // under 30
         if (!riskyAge) {
 
             if (male) {
-                if (triggers == 3) return RiskLevels.IN_DANGER.name();
-                if (triggers >= 5) return RiskLevels.EARLY_ONSET.name();
+                if (triggers == 3) return RiskLevels.IN_DANGER.getLabel();
+                if (triggers >= 5) return RiskLevels.EARLY_ONSET.getLabel();
             }
 
             if (female) {
-                if (triggers == 4) return RiskLevels.IN_DANGER.name();
-                if (triggers >= 7) return RiskLevels.EARLY_ONSET.name();
+                if (triggers == 4) return RiskLevels.IN_DANGER.getLabel();
+                if (triggers >= 7) return RiskLevels.EARLY_ONSET.getLabel();
             }
 
         }
-        return RiskLevels.NONE.name();
+        return RiskLevels.NONE.getLabel();
     }
 
     // calculations
