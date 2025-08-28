@@ -8,5 +8,6 @@ public class EndpointsProperties {
 
     private String patientService;
     private String notesService;
+    private String reportService;
 
 }
