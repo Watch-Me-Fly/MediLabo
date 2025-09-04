@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let cancelBtn = document.getElementById("cancelBtn");
     let form = document.getElementById("patientForm");
     let inputs = form.querySelectorAll("input, select");
+    let riskLevel = document.getElementById("riskLevel");
 
     let isEditing = false;
 
@@ -20,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
     cancelBtn.addEventListener("click", function() {
         cancelEditing();
     })
+
+    riskLevelStyle();
 
     // -------------------------
     // functions
@@ -55,6 +58,21 @@ document.addEventListener("DOMContentLoaded", function() {
         updateBtn.classList.remove("save");
         cancelBtn.classList.add("d-none");
         isEditing = false;
+    }
+
+    function riskLevelStyle() {
+        if (riskLevel.textContent === "None") {
+            riskLevel.classList.add("risk-none");
+        }
+        if (riskLevel.textContent === "Borderline") {
+            riskLevel.classList.add("risk-borderline");
+        }
+        if (riskLevel.textContent === "In Danger") {
+            riskLevel.classList.add("risk-in-danger");
+        }
+        if (riskLevel.textContent === "Early Onset") {
+            riskLevel.classList.add("risk-early-onset");
+        }
     }
 
 });
