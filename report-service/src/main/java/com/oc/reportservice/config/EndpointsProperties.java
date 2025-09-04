@@ -1,4 +1,4 @@
-package com.oc.frontend.config;
+package com.oc.reportservice.config;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +8,5 @@ public class EndpointsProperties {
 
     private String patientService;
     private String notesService;
-    private String reportService;
 
 }

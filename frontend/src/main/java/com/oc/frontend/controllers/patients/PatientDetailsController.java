@@ -3,6 +3,7 @@ package com.oc.frontend.controllers.patients;
 import com.oc.frontend.config.EndpointsProperties;
 import com.oc.frontend.models.Note;
 import com.oc.frontend.models.Patient;
+import com.oc.frontend.models.Report;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +34,11 @@ public class PatientDetailsController {
         String notesURL = endpoints.getNotesService() + "/patient/" + id;
         Note[] notes = restTemplate.getForObject(notesURL, Note[].class);
         model.addAttribute("notes", notes);
+
+        // fetch risk level
+        String reportUrl = endpoints.getReportService() + "/" + id;
+        Report report = restTemplate.getForObject(reportUrl, Report.class);
+        model.addAttribute("report", report);
 
         return "patient/details";
     }

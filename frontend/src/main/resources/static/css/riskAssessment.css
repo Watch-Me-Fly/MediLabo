@@ -1,0 +1,46 @@
+.tag {
+    line-height: 2em;
+    border-right: solid 1px;
+    border-bottom: solid 1px;
+}
+.tag:before {
+    margin-right: 15px;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 40px;
+}
+/*-------------------*/
+.risk-none {
+background-color: #CADCAE;
+color: #064232;
+}
+.risk-none:before {
+content: "✅";
+}
+/*-------------------*/
+.risk-borderline {
+background-color: #FBF3D5;
+color: #E1AA36;
+}
+.risk-borderline:before {
+content: "✴️";
+}
+/*-------------------*/
+.risk-in-danger {
+background-color: #FFEAEA;
+color: var(--important-color);
+}
+.risk-in-danger:before {
+content: "🆘";
+}
+/*-------------------*/
+.risk-early-onset {
+background-color: var(--important-color);
+color: white;
+border-right: solid black 1px !important;
+border-bottom: solid black 1px !important;
+}
+.risk-early-onset:before {
+content: "⏱️";
+}
