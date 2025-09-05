@@ -1,5 +1,5 @@
-app:
-  endpoints:
-    patient-service: http://localhost:8081/patients
-    notes-service: http://localhost:8082/notes
-    report-service: http://localhost:8083/report
+spring:
+  application:
+    name: frontend
+  profiles:
+    active: local
