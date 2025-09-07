@@ -1,4 +1,7 @@
+gateway:
+  base-url: http://localhost:8080
+
 app:
   endpoints:
-    patient-service: http://localhost:8081/patients
-    notes-service: http://localhost:8082/notes
+    patient-service: ${gateway.base-url}/api/patients
+    notes-service: ${gateway.base-url}/api/notes
