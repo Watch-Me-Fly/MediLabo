@@ -1,0 +1,4 @@
+app:
+  endpoints:
+    patient-service: http://patient-service:8081/patients
+    notes-service: http://notes-service:8082/notes

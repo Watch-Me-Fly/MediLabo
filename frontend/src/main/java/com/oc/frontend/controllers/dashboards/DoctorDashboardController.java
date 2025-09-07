@@ -15,7 +15,7 @@ public class DoctorDashboardController {
 
         model.addAttribute("message", "Bonjour Docteur");
 
-        return new ModelAndView("/dashboard/doctor", model.asMap());
+        return new ModelAndView("dashboard/doctor", model.asMap());
     }
 
 }
