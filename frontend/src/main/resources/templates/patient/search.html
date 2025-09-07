@@ -89,8 +89,15 @@
         </form>
     </div>
 
-    <div class="mt-4 alert alert-dismissible"
-         id="alertBox" role="alert" hidden>
+    <div class="mt-4 alert alert-dismissible alert-danger fade show"
+         th:if="${errorMsg != null}"
+         role="alert">
+        <span th:text="${errorMsg}"></span>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close">
+        </button>
     </div>
 
 </div>
