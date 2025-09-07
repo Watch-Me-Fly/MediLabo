@@ -1,0 +1,43 @@
+services :
+  gateway-service:
+    build: ./gateway-service
+    ports: 
+    - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+    - frontend
+    - patient-service
+    - notes-service
+    - report-service
+
+  patient-service:
+    build: ./patient-service
+    ports: 
+    - "8081:8081"
+
+  notes-service:
+    build: ./notes-service
+    ports: 
+    - "8082:8082"
+
+  report-service:
+    build: ./report-service
+    ports: 
+    - "8083:8083"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+    - patient-service
+    - notes-service
+
+  frontend:
+    build: ./frontend
+    ports: 
+    - "8084:8084"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+    - patient-service
+    - notes-service
+    - report-service
