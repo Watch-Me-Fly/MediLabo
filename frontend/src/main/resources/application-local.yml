@@ -1,5 +1,6 @@
 gateway:
   login-url: http://localhost:8080/login
+  base-url: http://localhost:8080
 
 app:
   endpoints:
