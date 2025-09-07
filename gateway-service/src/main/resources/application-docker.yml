@@ -1,5 +1,6 @@
 frontend:
-  base-url: http://frontend:8084
+  base-url: http://localhost:8084/
+  route-url: http://frontend:8084
 
 spring:
   cloud:
@@ -20,37 +21,39 @@ spring:
               uri: http://report-service:8083
               predicates:
                 - Path=/api/report/**
+
             # front end
             - id: frontend-dashboard
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/dashboard/**
             - id: patient-pages
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/patients/**
             - id: notes-pages
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/notes/**
             - id: report-pages
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/report/**
+
             # ressources
             - id: frontend-static
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/static/**
             - id: frontend-js
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/js/**
             - id: frontend-css
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/css/**
             - id: frontend-images
-              uri: ${frontend.base-url}
+              uri: ${frontend.route-url}
               predicates:
                 - Path=/img/**
