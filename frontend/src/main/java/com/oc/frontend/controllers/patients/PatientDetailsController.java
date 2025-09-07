@@ -4,6 +4,7 @@ import com.oc.frontend.config.EndpointsProperties;
 import com.oc.frontend.models.Note;
 import com.oc.frontend.models.Patient;
 import com.oc.frontend.models.Report;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,9 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 @RequestMapping("/patients")
 public class PatientDetailsController {
+
+    @Value("${gateway.base-url}")
+    private String baseUrl;
 
     private final RestTemplate restTemplate;
     private final EndpointsProperties endpoints;
@@ -48,7 +52,7 @@ public class PatientDetailsController {
     public String updatePatient(@PathVariable("id") String id, @ModelAttribute Patient patient) {
         String url = endpoints.getPatientService() + "/" + id;
         restTemplate.put(url, patient);
-        return "redirect:/patients/" + id;
+        return "redirect:" + baseUrl + "/patients/" + id;
     }
 
 }
