@@ -68,7 +68,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("1");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.NONE.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.NONE.getLabel());
     }
 
     @DisplayName("3 triggers in the note, risky age, any sex [borderline]")
@@ -84,7 +84,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("1");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.BORDERLINE.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.BORDERLINE.getLabel());
     }
 
     @DisplayName("Young male patient, 3 triggers [in danger]")
@@ -100,7 +100,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("1");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.IN_DANGER.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.IN_DANGER.getLabel());
     }
 
     @DisplayName("Young female patient, 4 triggers [in danger]")
@@ -116,7 +116,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("2");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.IN_DANGER.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.IN_DANGER.getLabel());
     }
 
     @DisplayName("6 triggers, risky age, any sex [in danger]")
@@ -132,7 +132,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("1");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.IN_DANGER.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.IN_DANGER.getLabel());
     }
 
     @DisplayName("Young male, 5 triggers [early onset]")
@@ -147,7 +147,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("1");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.EARLY_ONSET.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.EARLY_ONSET.getLabel());
     }
     @DisplayName("Young female, 7 triggers [early onset]")
     @Test
@@ -161,7 +161,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("2");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.EARLY_ONSET.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.EARLY_ONSET.getLabel());
     }
 
     @DisplayName("8 triggers, any sex, risky age [early onset]")
@@ -177,7 +177,7 @@ public class RiskAssessmentServiceTest {
         // act
         ReportResults results = service.generateRiskReport("2");
         // assert
-        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.EARLY_ONSET.name());
+        assertThat(results.getRiskLevel()).isEqualTo(RiskLevels.EARLY_ONSET.getLabel());
     }
 
 }
