@@ -34,7 +34,7 @@ public class PatientController {
         return service.findAll();
     }
     @GetMapping("/{id}")
-    public Optional<Patient> getPatientById(@PathVariable String id) {
+    public Optional<Patient> getPatientById(@PathVariable Long id) {
         return service.findById(id);
     }
     @GetMapping("/search")
@@ -50,14 +50,14 @@ public class PatientController {
     }
     // update
     @PutMapping("/{id}")
-    public ResponseEntity<String> updatePatient(@PathVariable String id,
+    public ResponseEntity<String> updatePatient(@PathVariable Long id,
                                                 @RequestBody Patient patient) {
         patient.setId(id);
         service.updatePatient(patient);
         return ResponseEntity.status(HttpStatus.OK).body("Patient information updated");
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletePatient(@PathVariable String id) {
+    public ResponseEntity<String> deletePatient(@PathVariable Long id) {
         Optional<Patient> patient = service.findById(id);
         if (patient.isPresent()) {
             service.deletePatient(id);

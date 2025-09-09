@@ -58,7 +58,7 @@ public class PatientService {
             throw new RuntimeException("Error retrieving all patients list : " + e);
         }
     }
-    public Optional<Patient> findById(String id) {
+    public Optional<Patient> findById(Long id) {
         log.info("[PatientService] - entered findById");
         try {
             return repository.findById(id);
@@ -94,7 +94,7 @@ public class PatientService {
         }
     }
     // delete
-    public void deletePatient(String id) {
+    public void deletePatient(Long id) {
         log.info("[PatientService] - entered deletePatient");
         if (repository.existsById(id)) {
             try {

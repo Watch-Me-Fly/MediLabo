@@ -37,11 +37,11 @@ public class PatientServiceTest {
         service = new PatientService(repository);
         patients = new ArrayList<>();
         patients.add(new Patient(
-                "1", "Jack", "Sparrow",
+                1L, "Jack", "Sparrow",
                 LocalDate.of(1993, 2, 1),
                 "M", "Black Pearl", null));
         patients.add(new Patient(
-                "2", "Elizabeth", "Swann",
+                2L, "Elizabeth", "Swann",
                 LocalDate.of(1990, 1, 2),
                 "F", "Port Royal", null));
 
@@ -52,7 +52,7 @@ public class PatientServiceTest {
     public void createPatientProfile_success() {
         // arrange
         Patient patient = new Patient();
-        patient.setId("3");
+        patient.setId(3L);
         patient.setFirstName("John");
         patient.setLastName("Doe");
         patient.setBirthDate(LocalDate.of(1945, 10, 1));
@@ -63,17 +63,17 @@ public class PatientServiceTest {
         // act
         service.createPatient(patient);
         // assert
-        Optional<Patient> retrievePatient = service.findById("3");
+        Optional<Patient> retrievePatient = service.findById(3L);
 
         verify(repository, times(1)).save(patient);
-        assertEquals("3", retrievePatient.get().getId());
+        assertEquals(3, retrievePatient.get().getId());
     }
     @DisplayName("Should not create a patient profile due to missing data")
     @Test
     public void createPatientProfile_missingData() {
         // arrange
         Patient patient = new Patient();
-        patient.setId("3");
+        patient.setId(3L);
         patient.setLastName("Doe");
         patient.setBirthDate(LocalDate.of(1945, 10, 1));
         patient.setSex("M");
@@ -136,7 +136,7 @@ public class PatientServiceTest {
         // arrange
         when(repository.existsById(any())).thenReturn(true);
         // act
-        service.deletePatient("2");
+        service.deletePatient(2L);
         // assert
         verify(repository, times(1)).existsById(any());
         verify(repository, times(1)).deleteById(any());
