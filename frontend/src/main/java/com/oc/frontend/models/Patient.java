@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Getter @Setter
 public class Patient {
 
-    private String id;
+    private Long id;
     private String firstName;
     private String lastName;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
