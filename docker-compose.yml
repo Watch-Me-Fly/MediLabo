@@ -1,4 +1,21 @@
 services :
+  mysql:
+    image: mysql:8
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: patients_db
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
   gateway-service:
     build: ./gateway-service
     ports: 
@@ -15,6 +32,10 @@ services :
     build: ./patient-service
     ports: 
     - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+    - mysql
 
   notes-service:
     build: ./notes-service
@@ -41,3 +62,6 @@ services :
     - patient-service
     - notes-service
     - report-service
+
+volumes:
+  mysql-data:
