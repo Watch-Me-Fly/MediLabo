@@ -1,0 +1,63 @@
+frontend:
+  base-url: http://localhost:8084
+  route-url: http://localhost:8084/
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            # micro-services
+            - id: patient-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/api/patients/**
+              filters:
+                - StripPrefix=1
+            - id: notes-service
+              uri: http://localhost:8082
+              predicates:
+                - Path=/api/notes/**
+              filters:
+                - StripPrefix=1
+            - id: report-service
+              uri: http://localhost:8083
+              predicates:
+                - Path=/api/report/**
+              filters:
+                - StripPrefix=1
+            # front end
+            - id: frontend-dashboard
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/dashboard/**
+            - id: patient-pages
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/patients/**
+            - id: notes-pages
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/notes/**
+            - id: report-pages
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/report/**
+            # ressources
+            - id: frontend-static
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/static/**
+            - id: frontend-js
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/js/**
+            - id: frontend-css
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/css/**
+            - id: frontend-images
+              uri: ${frontend.base-url}
+              predicates:
+                - Path=/img/**

@@ -1,0 +1,7 @@
+gateway:
+  docker-url: http://gateway-service:8080
+
+app:
+  endpoints:
+    patient-service: ${gateway.docker-url}/api/patients
+    notes-service: ${gateway.docker-url}/api/notes

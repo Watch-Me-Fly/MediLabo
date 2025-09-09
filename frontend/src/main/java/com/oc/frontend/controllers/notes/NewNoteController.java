@@ -3,6 +3,7 @@ package com.oc.frontend.controllers.notes;
 import com.oc.frontend.config.EndpointsProperties;
 import com.oc.frontend.models.Note;
 import com.oc.frontend.models.Patient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/notes")
 public class NewNoteController {
+
+    @Value("${gateway.base-url}")
+    private String baseUrl;
 
     private final RestTemplate restTemplate;
     private final EndpointsProperties endpoints;
@@ -46,6 +50,6 @@ public class NewNoteController {
         restTemplate.postForObject(url, note, String.class);
 
         redirectAttributes.addFlashAttribute("SUCCESS", "Note created successfully!");
-        return "redirect:/patients/" + note.getPatientId();
+        return "redirect:" + baseUrl + "/patients/" + note.getPatientId();
     }
 }

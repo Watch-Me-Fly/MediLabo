@@ -1,55 +1,5 @@
 spring:
   application:
     name: gateway-service
-  cloud:
-    gateway:
-      server:
-        webflux:
-          routes:
-        # micro-services
-          - id: patient-service
-            uri: http://localhost:8081
-            predicates:
-              - Path=/api/patients/**
-          - id: notes-service
-            uri: http://localhost:8082
-            predicates:
-              - Path=/api/notes/**
-          - id: report-service
-            uri: http://localhost:8083
-            predicates:
-              - Path=/api/report/**
-        # front end
-          - id: frontend-dashboard
-            uri: http://localhost:8084
-            predicates:
-              - Path=/dashboard/**
-          - id: patient-pages
-            uri: http://localhost:8084
-            predicates:
-              - Path=/patients/**
-          - id: notes-pages
-            uri: http://localhost:8084
-            predicates:
-              - Path=/notes/**
-          - id: report-pages
-            uri: http://localhost:8084
-            predicates:
-              - Path=/report/**
-        # ressources
-          - id: frontend-static
-            uri: http://localhost:8084
-            predicates:
-              - Path=/static/**
-          - id: frontend-js
-            uri: http://localhost:8084
-            predicates:
-              - Path=/js/**
-          - id: frontend-css
-            uri: http://localhost:8084
-            predicates:
-              - Path=/css/**
-          - id: frontend-images
-            uri: http://localhost:8084
-            predicates:
-              - Path=/img/**
+  profiles:
+    active: local

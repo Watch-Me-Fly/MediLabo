@@ -1,0 +1,10 @@
+gateway:
+  login-url: http://localhost:8080/login
+  base-url: http://localhost:8080
+  docker-url: http://gateway-service:8080
+
+app:
+  endpoints:
+    patient-service: ${gateway.docker-url}/api/patients
+    notes-service: ${gateway.docker-url}/api/notes
+    report-service: ${gateway.docker-url}/api/report

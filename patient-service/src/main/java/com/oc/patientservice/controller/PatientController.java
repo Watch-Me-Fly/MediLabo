@@ -38,12 +38,15 @@ public class PatientController {
         return service.findById(id);
     }
     @GetMapping("/search")
-    public Optional<Patient> getPatientInformation(@RequestParam String firstName,
+    public ResponseEntity<Patient> getPatientInformation(@RequestParam String firstName,
                                                    @RequestParam String lastName,
                                                    @RequestParam String dateOfBirth) {
 
         LocalDate birthDate = LocalDate.parse(dateOfBirth);
-        return service.getPatientInformation(firstName, lastName, birthDate);
+        Optional<Patient> result = service.getPatientInformation(firstName, lastName, birthDate);
+
+        return result.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
     // update
     @PutMapping("/{id}")
