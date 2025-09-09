@@ -1,0 +1,40 @@
+{
+  "$jsonSchema": {
+    "bsonType": "object",
+    "required": [
+      "_id",
+      "address",
+      "birthDate",
+      "firstName",
+      "lastName",
+      "phone",
+      "sex"
+    ],
+    "properties": {
+      "_id": {
+        "bsonType": "objectId"
+      },
+      "_class": {
+        "bsonType": "string"
+      },
+      "address": {
+        "bsonType": "string"
+      },
+      "birthDate": {
+        "bsonType": "date"
+      },
+      "firstName": {
+        "bsonType": "string"
+      },
+      "lastName": {
+        "bsonType": "string"
+      },
+      "phone": {
+        "bsonType": "string"
+      },
+      "sex": {
+        "bsonType": "string"
+      }
+    }
+  }
+}
