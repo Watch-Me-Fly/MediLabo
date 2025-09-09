@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService;
@@ -70,10 +71,11 @@ public class SecurityConfig {
                         .pathMatchers("/js/**", "/css/**", "/img/**", "/static/**").permitAll()
                         // role-based dashboards
                         .pathMatchers("/dashboard/patient").hasRole(PATIENT_ROLE)
-                        .pathMatchers("/dashboard/doctor", "/**").hasRole(DOCTOR_ROLE)
+                        .pathMatchers("/dashboard/doctor", "/**", "/api/**").hasRole(DOCTOR_ROLE)
                         // all other requests must be authenticated
                         .anyExchange().authenticated()
                 )
+                .httpBasic(Customizer.withDefaults())
                 .formLogin(form -> form
                         .loginPage("/login")
                         .authenticationSuccessHandler((webFilterExchange,

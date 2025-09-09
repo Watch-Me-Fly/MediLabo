@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "68af1adfaab8fa00b4c9640a"
+  },
+  "patientId": "68ab1b051e17471b54838c12",
+  "textContent": "Le patient déclare qu'il 'se sent très bien' Poids égal ou inférieur au poids recommandé",
+  "createdAt": {
+    "$date": "2025-08-01T14:49:03.391Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b2eaab8fa00b4c9640b"
+  },
+  "patientId": "68ab1b681e17471b54838c13",
+  "textContent": "Le patient déclare qu'il ressent beaucoup de stress au travail Il se plaint également que son audition est anormale dernièrement",
+  "createdAt": {
+    "$date": "2025-08-02T14:50:22.562Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b3baab8fa00b4c9640c"
+  },
+  "patientId": "68ab1b681e17471b54838c13",
+  "textContent": "Le patient déclare avoir fait une réaction aux médicaments au cours des 3 derniers mois Il remarque également que son audition continue d'être anormale",
+  "createdAt": {
+    "$date": "2025-08-03T15:50:35.248Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b52aab8fa00b4c9640d"
+  },
+  "patientId": "68ab1b991e17471b54838c14",
+  "textContent": "Le patient déclare qu'il fume depuis peu",
+  "createdAt": {
+    "$date": "2025-08-04T09:10:58.932Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b5eaab8fa00b4c9640e"
+  },
+  "patientId": "68ab1b991e17471b54838c14",
+  "textContent": "Le patient déclare qu'il est fumeur et qu'il a cessé de fumer l'année dernière Il se plaint également de crises d’apnée respiratoire anormales Tests de laboratoire indiquant un taux de cholestérol LDL élevé",
+  "createdAt": {
+    "$date": "2025-08-05T10:31:10.224Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b78aab8fa00b4c9640f"
+  },
+  "patientId": "68ab1bba1e17471b54838c15",
+  "textContent": "Le patient déclare qu'il lui est devenu difficile de monter les escaliers Il se plaint également d’être essoufflé Tests de laboratoire indiquant que les anticorps sont élevés Réaction aux médicaments",
+  "createdAt": {
+    "$date": "2025-08-06T08:51:36.181Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b83aab8fa00b4c96410"
+  },
+  "patientId": "68ab1bba1e17471b54838c15",
+  "textContent": "Le patient déclare qu'il a mal au dos lorsqu'il reste assis pendant longtemps",
+  "createdAt": {
+    "$date": "2025-08-07T11:45:47.516Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b8faab8fa00b4c96411"
+  },
+  "patientId": "68ab1bba1e17471b54838c15",
+  "textContent": "Le patient déclare avoir commencé à fumer depuis peu Hémoglobine A1C supérieure au niveau recommandé",
+  "createdAt": {
+    "$date": "2025-08-08T12:24:59.203Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "68af1b9aaab8fa00b4c96412"
+  },
+  "patientId": "68ab1bba1e17471b54838c15",
+  "textContent": "Taille, Poids, Cholestérol, Vertige et Réaction",
+  "createdAt": {
+    "$date": "2025-08-27T14:52:10.225Z"
+  }
+}]
